@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
+    <title>Happy 3rd Bday Scarlett!</title>
+    <style type="text/css">
+    body {
+        /*			cursor:none;
+*/
+        background-image: url(cake3.png);
+        background-size: cover;
+        background-color: rgb(209, 237, 250);
+        background-repeat: no-repeat;
+
+    }
+
+    p {
+        font-family: 'Cabin Sketch', cursive;
+
+    }
+
+    #happy-birthday {
+        font-size: 60px;
+
+
+    }
+
+    #subtitle {
+        font-size: 40px;
+    }
+
+
+
+    #scarlett {
+        opacity: 0;
+        /*			cursor: none;
+*/
+        width: 250px;
+        height: 350px;
+        background-image: url(scarlett1.png);
+/*        background-image: red;
+*/        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        /*			animation-name:changeImage;
+*/
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+        z-index: 1;
+
+
+    }
+
+
+
+    @keyframes dance {
+
+        0% {
+            background-image: url(scarlett1.png);
+        }
+
+        50% {
+            background-image: url(scarlett2.png);
+
+        }
+
+        100% {
+            background-image: url(scarlett1.png);
+
+        }
+
+    }
+
+    #button {
+
+    	top:0%;
+    	position:relative;
+    	z-index: 2;
+        opacity: 0.7;
+        background-image: url(elsa.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100px;
+        height: 100px;
+        border-radius: 10%;
+
+/*        background-color: yellow;
+*/        font-family: 'Cabin Sketch', cursive;
+        font-size: 1vw;
+        text-align: center;
+        /*			animation-name:grow;
+*/
+        animation-duration: 1s;
+        transition: 1s;
+        animation-iteration-count: infinite;
+
+    }
+
+    @keyframes grow {
+        0% {
+            width: 100px;
+            height: 100px;
+        }
+
+        50% {
+            width: 200px;
+            height: 200px;
+        }
+
+        100% {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    #invisible {
+    	background-size:contain;
+    	background-repeat:no-repeat;
+    	position:absolute;
+    	top:0%;
+    	width:40%;
+    	font-size:;
+        opacity: 0;
+        z-index: 5;
+        left:60%;
+
+
+    }
+
+    #family{
+    	border-radius:10%;
+    	background-position:center;
+    	opacity:0;
+    	left:0%;
+    	position:relative;
+/*    	animation-name:grow;
+*/    	animation-duration:1s;
+    	animation-iteration-count: infinite;
+    	width:600px;
+    	height:400px;
+    	opacity: 0;
+    	background-image:url(family.png);
+    	background-size:contain;
+    	background-repeat:no-repeat;
+    }
+    </style>
+</head>
+
+<body>
+    <audio id="song" src="7rings.mp3"></audio>
+    <div id="button">Click here!</div>
+        <div id="scarlett"></div>
+
+    <div id=invisible>
+        <p id="happy-birthday">
+            Happy 3rd Birthday Scarlett!!</p>
+        <p id="subtitle">We Love you!!</p>
+    </div>
+
+    <div id='family'></div>
+
+
+
+    <script type="text/javascript">
+    	    var family = document.getElementById('family');
+
+    var button = document.getElementById('button');
+    
+    var song = document.getElementById('song');
+     var bday = document.getElementById("happy-birthday");
+      var invisible = document.getElementById('invisible');
+       var scarlett = document.getElementById('scarlett');
+    var x = 0;
+
+    button.addEventListener("click",
+        function() {
+        	x = x+1;
+        	console.log('hi');
+
+        
+            
+           
+
+            if (x % 2 == 1) {
+                song.play();
+                 function bdayColor() {
+                bday.style.color = "rgb(" + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + "," + Math.round(Math.random() * 255) + ")";
+
+
+            }
+
+            setInterval(bdayColor, 500);
+
+            
+
+           
+            scarlett.style.opacity = 1;
+
+            invisible.style.opacity = 1;
+            family.style.opacity = 1;
+            scarlett.style.animationName="dance";
+           
+            button.style.animationName="grow";
+            // scarlett.style.cursor = 'none';
+
+
+
+
+
+            document.addEventListener("mousemove", function(event) {
+                console.log(event);
+                scarlett.style.left = event.clientX - 170 + "px";
+                scarlett.style.top = event.clientY - 100 + "px";
+
+            });
+            } else if (x % 2 == 0) {
+                song.pause();
+                invisible.style.opacity=0;
+                scarlett.style.opacity=0;
+                 family.style.opacity=0;
+                 button.style.animationName="";
+            }
+});
+       
+    </script>
+</body>
+
+</html>
