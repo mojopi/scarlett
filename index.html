@@ -22,13 +22,13 @@
     }
 
     #happy-birthday {
-        font-size: 60px;
+        font-size: 80px;
 
 
     }
 
     #subtitle {
-        font-size: 40px;
+        font-size: 60px;
     }
 
 
@@ -84,13 +84,13 @@
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         border-radius: 10%;
 
 /*        background-color: yellow;
 */        font-family: 'Cabin Sketch', cursive;
-        font-size: 1vw;
+        font-size: 20px;
         text-align: center;
         /*			animation-name:grow;
 */
@@ -152,7 +152,7 @@
 
 <body>
     <audio id="song" src="7rings.mp3"></audio>
-    <div id="button">Click here!</div>
+    <div id="button"></div>
         <div id="scarlett"></div>
 
     <div id=invisible>
@@ -169,6 +169,7 @@
     	    var family = document.getElementById('family');
 
     var button = document.getElementById('button');
+    button.innerText="start the party!"
     
     var song = document.getElementById('song');
      var bday = document.getElementById("happy-birthday");
@@ -195,7 +196,7 @@
 
             setInterval(bdayColor, 500);
 
-            
+             button.innerText="stop party!"
 
            
             scarlett.style.opacity = 1;
@@ -219,6 +220,7 @@
             });
             } else if (x % 2 == 0) {
                 song.pause();
+                button.innerText="start the party!"
                 invisible.style.opacity=0;
                 scarlett.style.opacity=0;
                  family.style.opacity=0;
